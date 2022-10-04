@@ -1,5 +1,5 @@
 {
-  "name": "blog-mern",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,16 +8,8 @@
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nilyukov/blog-mern.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nilyukov/blog-mern/issues"
-  },
-  "homepage": "https://github.com/nilyukov/blog-mern#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.3",
