@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from "mongoose";
 
 export default (req, res, next) => {
     const token = (req.headers.authorization || '').replace(/Bearer\s?/, '');

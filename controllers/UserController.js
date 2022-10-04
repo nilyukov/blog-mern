@@ -1,16 +1,9 @@
-import {validationResult} from "express-validator";
 import bcrypt from "bcrypt";
 import UserModel from "../models/User.js";
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
     try {
-        const errors = validationResult(req);
-
-        if (!errors.isEmpty()) {
-            return res.status(400).json(errors.array());
-        }
-
         const {email, fullName, password, avatarUrl} = req.body;
 
         const salt = await bcrypt.genSalt(10);
@@ -89,7 +82,7 @@ export const login = async (req, res) => {
 export const getMe = async (req, res) => {
 
     try {
-        const user = await User.findById(req.userId);
+        const user = await UserModel.findById(req.userId);
 
         if (!user) {
             return res.status(404).json({
