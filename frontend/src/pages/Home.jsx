@@ -35,7 +35,7 @@ export const Home = () => {
                                 key={obj._id}
                                 id={obj._id}
                                 title={obj.title}
-                                imageUrl={obj.imageUrl || 'https://picsum.photos/seed/picsum/600/300'}
+                                imageUrl={obj.imageUrl ? process.env.REACT_APP_API_URL + obj.imageUrl : 'https://picsum.photos/seed/picsum/600/300'}
                                 user={obj.user}
                                 createdAt={obj.createdAt}
                                 viewsCount={obj.viewsCount}

@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import {Index, Post, CommentsBlock} from "../components";
 import {useParams} from "react-router-dom";
 import axios from "../axios";
+import ReactMarkdown from "react-markdown";
 
 export const FullPost = () => {
     const {id} = useParams();
@@ -31,7 +32,7 @@ export const FullPost = () => {
             <Post
                 id={data._id}
                 title={data.title}
-                imageUrl={data.imageUrl || 'https://picsum.photos/seed/picsum/1150/450'}
+                imageUrl={data.imageUrl ? process.env.REACT_APP_API_URL + data.imageUrl : 'https://picsum.photos/seed/picsum/1150/450'}
                 user={data.user}
                 createdAt={data.createdAt}
                 viewsCount={data.viewsCount}
@@ -39,7 +40,7 @@ export const FullPost = () => {
                 tags={data.tags}
                 isFullPost
             >
-                <p>{data.text}</p>
+                <ReactMarkdown children={data.text}/>
             </Post>
             <CommentsBlock
                 items={[

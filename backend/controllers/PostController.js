@@ -86,9 +86,7 @@ export const remove = async (req, res) => {
                     });
                 }
 
-                res.json({
-                    success: true
-                });
+                return res.json({success: true});
             }
         );
     } catch (err) {
@@ -108,7 +106,7 @@ export const create = async (req, res) => {
             title,
             text,
             imageUrl,
-            tags,
+            tags: tags.split(', '),
             user: req.userId
         });
 
@@ -136,7 +134,7 @@ export const update = async (req, res) => {
                 title,
                 text,
                 imageUrl,
-                tags,
+                tags: tags.split(', '),
                 user: req.userId
             }
         );
